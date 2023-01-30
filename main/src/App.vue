@@ -2,9 +2,15 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/subapp/app-react">app-react</router-link> |
+      <router-link to="/subapp/app-vue2">app-vue2</router-link> |
+      <router-link to="/subapp/app-vue3">app-vue3</router-link>
     </div>
-    <router-view/>
+    <h1>Micro Frontends</h1>
+    <!-- 主应用路由渲染出口 -->
+    <router-view />
+    <!-- 微前端主应用渲染出口 -->
+    <div id="subapp-container"></div>
   </div>
 </template>
 
