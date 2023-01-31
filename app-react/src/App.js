@@ -1,5 +1,6 @@
 // import logo from "./logo.svg"
-import logo from "./logo.png"
+// import logo from "./logo.png"
+import logo from "./logo192.png"
 import "./App.css"
 
 function App() {

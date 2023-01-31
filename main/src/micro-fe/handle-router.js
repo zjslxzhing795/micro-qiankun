@@ -41,6 +41,9 @@ export const handleRourer = async function () {
   container.appendChild(template);
   // 配置全局变量
   window.__POWERED_BY_QIANKUN__ = true;
+  window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__ = app.entry.endsWith("/")
+    ? app.entry
+    : `${app.entry}/`;
 
   const appExports = await execScripts();
   console.log(appExports);
