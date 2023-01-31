@@ -1,6 +1,6 @@
 import Vue from "vue";
-// import { registerMicroApps, start } from "qiankun";
-import { registerMicroApps, start } from "./micro-fe";
+import { registerMicroApps, start } from "qiankun";
+// import { registerMicroApps, start } from "./micro-fe";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -29,7 +29,12 @@ registerMicroApps([
   },
 ]);
 // 启动子应用
-start();
+start({
+  sandbox: {
+    strictStyleIsolation: true, // 使用shadow-dom 进行样式隔离
+    // experimentalStyleIsolation: true, // 通过添加选择器范围来解决样式冲突
+  },
+});
 
 new Vue({
   router,
