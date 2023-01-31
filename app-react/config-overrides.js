@@ -2,6 +2,7 @@ const { name } = require("./package")
 
 module.exports = {
   webpack: (config) => {
+    config.mode = "development"
     config.output.library = `${name}-[name]`
     config.output.libraryTarget = "umd"
     // config.output.jsonpFunction = `webpackJsonp_${name}`

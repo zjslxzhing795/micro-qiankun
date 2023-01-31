@@ -12,5 +12,12 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     quotes: "off",
     "import/no-extraneous-dependencies": "off",
+    "import/no-cycle": "off",
+    "no-unused-expressions": "off",
+    "operator-linebreak": "off",
+    "no-underscore-dangle": "off",
+    "comma-dangle": "off",
+    "no-eval": "off",
+    "import/prefer-default-export": "off",
   },
 };
