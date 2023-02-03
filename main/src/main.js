@@ -1,6 +1,6 @@
 import Vue from "vue";
-// import { registerMicroApps, start } from "qiankun";
-import { registerMicroApps, start } from "./micro-fe";
+import { registerMicroApps, start } from "qiankun";
+// import { registerMicroApps, start } from "./micro-fe";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -14,6 +14,11 @@ registerMicroApps([
     entry: "//localhost:3000", // 子应用 HTML 入口
     container: "#subapp-container", // 渲染到哪里
     activeRule: "/subapp/app-react", // 路由匹配规则
+    props: {
+      // 主应用传递给子应用的数据，子应用mount钩子内可获取
+      nickname: "zj",
+      age: 18,
+    },
   },
   {
     name: "app-vue2",
