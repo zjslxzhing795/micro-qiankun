@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client"
 import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
+import { isObjEqual } from "./utils/isObjEqual"
 
 // const root = ReactDOM.createRoot(document.getElementById("root"))
 // root.render(
@@ -34,7 +35,7 @@ function render(props = {}) {
 }
 // 独立运行时
 if (!window.__POWERED_BY_QIANKUN__) {
-  mount({})
+  mount()
 }
 
 // 子应用接入qiankun
@@ -43,14 +44,26 @@ if (!window.__POWERED_BY_QIANKUN__) {
  * 通常我们可以在这里做一些全局变量的初始化，比如不会在 unmount 阶段被销毁的应用级别的缓存等。
  */
 export async function bootstrap() {
-  console.log("react app bootstraped")
+  // console.log("react app bootstraped")
 }
 
 /**
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
-  console.log("[react18] mounted! props from main framework:", props)
+  if (props) {
+    // console.log("[react18] mounted! props from main framework:", props)
+    props.onGlobalStateChange((state, prev) => {
+      if (!isObjEqual(state, prev)) {
+        // state: 变更后的状态; prev 变更前的状态
+        console.log("react 子应用")
+        console.log(state, prev)
+        setTimeout(() => {
+          props.setGlobalState({ ...state, age: "zj" })
+        }, 2000)
+      }
+    })
+  }
   render(props)
 }
 

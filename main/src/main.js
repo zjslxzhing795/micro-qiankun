@@ -1,11 +1,29 @@
 import Vue from "vue";
-import { registerMicroApps, start } from "qiankun";
+import { registerMicroApps, start, initGlobalState } from "qiankun";
 // import { registerMicroApps, start } from "./micro-fe";
+import { isObjEqual } from "../utils/isObjEqual";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
 Vue.config.productionTip = false;
+
+const initialState = { age: 20, class: "grade1" };
+// 初始化 state
+const actions = initGlobalState(initialState);
+
+actions.onGlobalStateChange((state, prev) => {
+  if (!isObjEqual(state, prev)) {
+    // state: 变更后的状态; prev 变更前的状态
+    console.log("主应用");
+    console.log(state, prev);
+  }
+});
+setTimeout(() => {
+  actions.setGlobalState({ ...initialState, age: 200 });
+}, 2000);
+// actions.setGlobalState({ ...initialState, age: 200 });
+// actions.offGlobalStateChange();
 
 // 注册子应用
 registerMicroApps([

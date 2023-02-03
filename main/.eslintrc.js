@@ -19,5 +19,6 @@ module.exports = {
     "comma-dangle": "off",
     "no-eval": "off",
     "import/prefer-default-export": "off",
+    "no-restricted-syntax": "off",
   },
 };
