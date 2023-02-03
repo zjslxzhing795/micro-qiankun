@@ -27,6 +27,9 @@ export const handleRourer = async function () {
   const prevApp = apps.find((item) => getPrevRoute().startsWith(item.activeRule));
   if (prevApp) {
     await unmount(prevApp);
+    const container = document.querySelector(prevApp.container);
+    const div = container.firstChild;
+    container.removeChild(div);
   }
   // 浏览器出于安全考虑，我们获取不到历史记录
   // 2. 匹配子应用
@@ -46,7 +49,6 @@ export const handleRourer = async function () {
     : `${app.entry}/`;
 
   const appExports = await execScripts();
-  console.log(appExports);
   app.bootstrap = appExports.bootstrap;
   app.mount = appExports.mount;
   app.unmount = appExports.unmount;
