@@ -1,6 +1,6 @@
 import Vue from "vue";
-import { registerMicroApps, start } from "qiankun";
-// import { registerMicroApps, start } from "./micro-fe";
+// import { registerMicroApps, start } from "qiankun";
+import { registerMicroApps, start } from "./micro-fe";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
