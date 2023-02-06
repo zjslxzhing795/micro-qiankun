@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/subapp/app-react">app-react</router-link> |
       <router-link to="/subapp/app-vue2">app-vue2</router-link> |
-      <router-link to="/subapp/app-vue3">app-vue3</router-link>
+      <!-- <router-link to="/subapp/app-vue3">app-vue3</router-link> | -->
+      <router-link to="/iframe">iframe</router-link>
     </div>
     <h1>Micro Frontends</h1>
     <!-- 主应用路由渲染出口 -->
